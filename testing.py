@@ -1,9 +1,13 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import sqlite3
 
 app = Flask(__name__)
 
 DATABASE = "rental.db"
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 @app.route("/cars")
 def get_cars():
