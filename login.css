@@ -10,13 +10,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* Note: Ensure the image path below is correct for your folder */
+    
     background: url('sea-men-ERd52c7VSrc-unsplash.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-/* --- Header & Navigation --- */
+
 header {
     position: fixed;
     top: 0;
@@ -83,24 +83,67 @@ header {
     color: #000;
 }
 
-/* --- Glassmorphism Wrapper --- */
 .wrapper {
     position: relative;
     width: 400px;
     height: 440px;
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Fixed alpha value */
+    border: 2px solid rgba(255, 255, 255, 0.5); 
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: height .2s ease;
+}
+
+.wrapper.active {
+    height: 520px;
 }
 
 .wrapper .form-box {
     width: 100%;
     padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+
+}
+
+.wrapper.active. form-box.login {
+    transition: none;
+    transform: translatex(-400px);
+
+
+}
+
+
+
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+
+.wrapper .icon-close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    
 }
 
 .form-box h2 {
@@ -109,7 +152,7 @@ header {
     text-align: center;
 }
 
-/* --- Input Fields --- */
+
 .input-box {
     position: relative;
     width: 100%;
@@ -130,7 +173,7 @@ header {
     transition: .5s;
 }
 
-/* Floating label logic */
+
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
     top: -5px;
