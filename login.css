@@ -114,18 +114,22 @@ header {
 
 }
 
-.wrapper.active. form-box.login {
+.wrapper.active .form-box.login {
     transition: none;
     transform: translatex(-400px);
 
 
 }
 
-
-
 .wrapper .form-box.register{
     position: absolute;
+    transition:none;
     transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 
 .wrapper .icon-close
