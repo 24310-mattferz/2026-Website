@@ -95,8 +95,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    overflow: hidden;
     transition: height .2s ease;
+}
+
+.wrapper.active-popup{
+    transform:scale(1)
 }
 
 .wrapper.active {
