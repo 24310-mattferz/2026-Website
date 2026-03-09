@@ -99,6 +99,7 @@ header {
     transition: height .2s ease;
 }
 
+
 .wrapper.active-popup{
     transform:scale(1)
 }
@@ -120,7 +121,7 @@ header {
 
 .wrapper.active .form-box.login {
     transition: none;
-    transform: translatex(-400px);
+    transform: translateX(-400px);
 
 
 }
