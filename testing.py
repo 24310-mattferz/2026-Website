@@ -1,25 +1,26 @@
-from flask import Flask, jsonify, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import sqlite3
 
-app = Flask(__name__)
-DATABASE = "rental.db"
+app = Flask(
+    __name__,
+    template_folder="HTML_CODE",
+    static_folder="CSS_AND_JS"
+)
 
+DATABASE = "rental.db"
 
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
-
 @app.route("/")
-def home():
-    return render_template("index.html") 
-
+def root():
+    return redirect("/login")
 
 @app.route("/login")
 def login_page():
     return render_template("login.html")
-
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -29,7 +30,6 @@ def register():
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,11 +45,10 @@ def register():
         )
         conn.commit()
         conn.close()
-        return redirect("/login")  
+        return redirect("/login")
     except sqlite3.IntegrityError:
         conn.close()
         return "Email already registered. Try logging in!"
-
 
 @app.route("/login_user", methods=["POST"])
 def login_user():
