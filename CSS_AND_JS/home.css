@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+*{
+    padding:0;
+    margin:0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+    box-sizing: border-box;
+    font-family: var(--font-family-2);
+}
+
+:root {
+    --main-color: #fa7104;
+    --second-color: #e05404;
+    --text-color: #060414;
+    --container-color: #efe8e0;
+    --bg-color: #f7f7f7;
+    --text-alter-color: #818181;
+    --poppins-font: "Poppins", sans-serif;
+    --font-family-2: "Squada One", sans-serif; 
+}
+body { 
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+a{
+    text-decoration: none;
+}
+img{
+    width: 100%;
+}
+section{
+    padding: 3rem 0 2rem;
+}

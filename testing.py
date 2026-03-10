@@ -62,7 +62,7 @@ def login_user():
     conn.close()
 
     if user:
-        return f"Login successful! Welcome, {user['username']}!"
+        return render_template("home.html", username=user["username"])
     else:
         return "Login failed. Check your email and password."
 
