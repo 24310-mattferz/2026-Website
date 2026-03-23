@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Squada+One&display=swap'); 
 
 :root {
     --main-color: #fa7104;
@@ -14,8 +14,6 @@
 *{
     padding: 0;
     margin: 0;
-    scroll-behavior: smooth;
-    scroll-padding-top: 3rem;
     box-sizing: border-box;
 }
 
@@ -29,22 +27,13 @@ a {
     text-decoration: none;
 }
 
-img {
-    width: 100%;
-}
-
-section {
-    padding: 3rem 0 2rem;
-}
-
-
 .container {
     max-width: 1060px;
     margin: auto;
     width: 100%; 
 }
 
-
+/* HEADER */
 header {
     position: fixed;
     top: 20px;
@@ -62,27 +51,83 @@ header {
     border-radius: 0.8rem;
 }
 
+/* LOGO */
 .logo{
     font-size: 1.7rem;
     font-weight: 400;
     color:var(--bg-color);
-    text-transform:upercase;
+    text-transform: uppercase;
     font-family: var(--font-family-2);
 }
 
-.logo span {
-    display:flex;
-    align-items: center;
-    column-gap:1.5rem;
+/* NAV LINKS */
+.navbar {
+    display: flex;
+    gap: 1.5rem;
 }
 
 .nav-link{
-    font-size:0.88rem;
+    font-size:0.9rem;
     color: var(--text-alter-color);
-    font-family: var(--poppins-font);
-    transition: 0.4s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.3s;
 }
+
 .nav-link:hover {
     color:var(--bg-color);
-    transition: 0.4s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* ICONS */
+.nav-icons {
+    display:flex;
+    align-items:center;
+    gap: 1rem;
+}
+
+/* ICON STYLE */
+.nav-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.nav-icons a:hover {
+    background: var(--second-color);
+}
+
+.nav-icons .bx{
+    color: var(--bg-color);
+    font-size:20px;
+}
+
+/* HAMBURGER */
+.menu-icon {
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5px;
+    cursor: pointer;
+}
+
+.menu-icon div{
+    background: var(--bg-color);
+    height: 2px;
+    width: 23px;
+    transition: 0.3s;
+}
+
+/* ANIMATION */
+.menu-icon.move .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.menu-icon.move .line2 {
+    opacity: 0;
+}
+
+.menu-icon.move .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
 }
