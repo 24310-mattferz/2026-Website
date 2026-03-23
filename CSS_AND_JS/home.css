@@ -131,3 +131,13 @@ header {
 .menu-icon.move .line3 {
     transform: rotate(45deg) translate(-5px, -5px);
 }
+
+.home {
+    margin-top: 120px;
+}
+
+.home-img img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
