@@ -242,7 +242,7 @@ header {
     font-size: 1em;
     color: #fff;
     font-weight: 500;
-    transition: background 0.3s;
+    transition: backgroud 0.3s;
 }
 
 .btn:active {
