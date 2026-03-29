@@ -296,6 +296,7 @@ header {
 }
 
 .rental-box img {
+    margin: 1.8rem 0 1rem;
     width: 100%;
     height: 100px;
     object-fit: cover;
@@ -311,4 +312,63 @@ header {
 }
 .rental-box:hover{
     transform: translateY(-10px);
+}
+
+.rental-top h3{
+    display: inline-block;
+    font-family: var(--poppins-font);
+    background: #efe8e0;
+    font-size: 0.77rem;
+    padding: 4px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.rental-top .bx{
+    font-size: 20px;
+    color: var(--text-alter-color);
+    cursor:pointer;
+}
+.rental-top .bx:hover{
+    color: var(--main-color);
+    transition: 0.3 ease;
+}
+
+.rental-box h2{
+    font-size: 1.4rem;
+    font-weight: 500;
+} 
+
+.rental-box h4{
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: var(--text-alter-color);
+    margin-top: 5px;
+}
+
+.price-btn {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price-btn p{
+    font-size: 0.97rem;
+}
+.price-btn p span {
+    color: var(--text-alter-color);
+}
+
+.rental-btn{
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 7px 10px;
+    font-size: 0.97rem;
+    border-radius: 4px;
+    transition: 0.4s ease;
+}
+.rental-btn:hover{
+    background: var(--main-color);
+    transition: 0.4s ease;
 }
