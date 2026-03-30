@@ -456,6 +456,11 @@ header {
     transition: 0.4s ease-in-out;
 }
 
+.footer {
+    background: var(--text-color);
+    color: var(--bg-color);
+    margin-top: 4rem; 
+}
 .footer-box h3{
     font-size: 1.2rem;
     font-weight: 500;
@@ -474,4 +479,114 @@ header {
 
 .footer-box a{
     color: var(--bg-color);
+}
+
+.copyright{
+    padding: 30px;
+    color: var(--bg-color);
+    text-align: center
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .trending-content,
+    .rentals-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-img::before {
+        font-size: 6rem;
+        letter-spacing: 1rem;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+       
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: var(--text-color);
+        width: 100%;
+        padding: 1rem 0;
+        display: none;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    
+    .trending-content,
+    .rentals-content,
+    .reviews-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    
+    .home {
+        padding-top: 8rem !important;
+    }
+
+    .home-img::before {
+        font-size: 3rem;
+        letter-spacing: 0.5rem;
+        top: -30px;
+    }
+
+    
+    .input-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-icons a {
+        width: 35px;
+        height: 35px;
+    }
+
+    .heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-img::before {
+        font-size: 2rem;
+    }
+
+    .t-box {
+        padding: 20px;
+    }
 }
