@@ -6,7 +6,7 @@
     <title>Revora | Automotive</title>
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../CSS_AND_JS/home.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
 <body>
 
@@ -24,7 +24,10 @@
 
         <div class="nav-icons">
             <a href="#"><i class='bx bx-search'></i></a>
-            <a href="#"><i class='bx bx-user'></i></a>
+            <a href="{{ url_for('login_page') }}">
+    <i class='bx bx-user'></i>
+</a>
+
 
             <div class="menu-icon">
                 <div class="line1"></div>
@@ -40,7 +43,7 @@
     <div class="home-content container">
 
         <div class="home-img">
-            <img src="../IMAGES/home.png" alt="">
+            <img src="{{ url_for('static', filename='images/home.png') }}">
         </div>
 
         <form class="input-form">
@@ -74,28 +77,28 @@
 
         <div class="trend-box">
             <h4>TURBO V8</h4>
-            <img src="../IMAGES/trending1.png" alt="">
+            <img src="{{ url_for('static', filename='images/trending1.png') }}">
             <h3>Mclaren 720s LW</h3>
             <p>From $999/day</p>
         </div>
 
         <div class="trend-box">
             <h4>V12 NA</h4>
-            <img src="../IMAGES/trending2.png" alt="">
+            <img src="{{ url_for('static', filename='images/trending2.png') }}">
             <h3>Ferrari 599 GTO</h3>
             <p>From $1099/day</p>
         </div>
 
         <div class="trend-box">
             <h4>FLAT 6</h4>
-            <img src="../IMAGES/trending3.png" alt="">
+            <img src="{{ url_for('static', filename='images/trending3.png') }}">
             <h3>1986 Porsche 911</h3>
             <p>From $1699/day</p>
         </div>
 
         <div class="trend-box">
             <h4>5.2 V10</h4>
-            <img src="../IMAGES/trending4.png" alt="">
+            <img src="{{ url_for('static', filename='images/trending4.png') }}">
             <h3>AUDI R8 LW</h3>
             <p>From $799/day</p>
        
@@ -117,7 +120,7 @@
                 <h3>Sports Car</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-1.png">
+            <img src="{{ url_for('static', filename='images/rental-1.png') }}">
             <h2>Ferrari F40</h2>
             <h4>Manual</h4>
             <div class="price-btn">
@@ -131,7 +134,7 @@
                 <h3>SUV</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-2.png">
+            <img src="{{ url_for('static', filename='images/rental-2.png') }}">
             <h2>Ferrari Purosange</h2>
             <h4>DCT</h4>
             <div class="price-btn">
@@ -145,7 +148,7 @@
                 <h3>Coupe</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-3.png">
+            <img src="{{ url_for('static', filename='images/rental-3.png') }}">
             <h2>Mercedes SLS</h2>
             <h4>DCT</h4>
             <div class="price-btn">
@@ -159,7 +162,7 @@
                 <h3>SUV</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-4.png">
+            <img src="{{ url_for('static', filename='images/rental-4.png') }}">
             <h2>Range Rover SV</h2>
             <h4>Automatic</h4>
             <div class="price-btn">
@@ -173,7 +176,7 @@
                 <h3>Sports Car</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-5.png">
+            <img src="{{ url_for('static', filename='images/rental-5.png') }}">
             <h2>1981 Lamborghini Countach</h2>
             <h4>Manual</h4>
             <div class="price-btn">
@@ -187,7 +190,7 @@
                 <h3>Luxury Sedan</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-6.png">
+            <img src="{{ url_for('static', filename='images/rental-6.png') }}">
             <h2>Rolls Royce Spectre</h2>
             <h4>Electric</h4>
             <div class="price-btn">
@@ -201,7 +204,7 @@
                 <h3>Muscle Car</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-7.png">
+            <img src="{{ url_for('static', filename='images/rental-7.png') }}">
             <h2>1969 Ford Mustang</h2>
             <h4>Manual</h4>
             <div class="price-btn">
@@ -215,7 +218,7 @@
                 <h3>Luxury Sedan</h3>
                 <i class='bx bxs-heart'></i>
             </div>
-            <img src="../IMAGES/rental-8.png">
+            <img src="{{ url_for('static', filename='images/rental-8.png') }}">
             <h2>2025 Mercedes S500</h2>
             <h4>Automatic</h4>
             <div class="price-btn">
@@ -243,7 +246,7 @@
             </div>
             <p>"Amazing service from start to finish and the car was extremly clean. Car was extremly clean and it was ready on time. The staff were freidnly and helpful and the price were extremly reasonable. I highly reccomend this company!!!</p>
             <div class="profile">
-                <img src="../IMAGES/profile-1.png" alt="">
+                <img src="{{ url_for('static', filename='images/profile-1.png') }}">
                 <div class="profile-data">
                     <h3>Benjamin Julias</h3>
                     <span>New York</span>
@@ -260,7 +263,7 @@
             </div>
             <p>"I had an amazing experience with this car rental service. The booking process was super smooth, and the car was clean and in perfect condition. Pick-up and drop-off were quick, and the staff were really helpful. Definitely using this again!”</p>
             <div class="profile">
-                <img src="../IMAGES/profile-2.png" alt="">
+                <img src="{{ url_for('static', filename='images/profile-2.png') }}">
                 <div class="profile-data">
                     <h3>Ayden Baptist</h3>
                     <span>Amsterdam</span>
@@ -277,7 +280,7 @@
             </div>
             <p>"Honestly one of the best rental experiences I’ve had. Prices were fair, no hidden fees, and the car matched exactly what was shown online. Customer support was quick to respond when I had a question. 10/10 service.”</p>
             <div class="profile">
-                <img src="../IMAGES/profile-3.png" alt="">
+                <img src="{{ url_for('static', filename='images/profile-3.png') }}">
                 <div class="profile-data">
                     <h3>Yohann Fernandez</h3>
                     <span>Auckland</span>
@@ -294,7 +297,7 @@
             </div>
             <p>"Really good service overall. The car drove well and was fuel-efficient, which was great for my trip. Only small issue was a slight delay during pick-up, but everything else was handled professionally. Would recommend.”</p>
             <div class="profile">
-                <img src="../IMAGES/profile-4.png" alt="">
+                <img src="{{ url_for('static', filename='images/profile-4.png') }}">
                 <div class="profile-data">
                     <h3>Raphael D'souza</h3>
                     <span>London</span>
@@ -344,7 +347,7 @@
 </div>
 
 
-<script src="../CSS_AND_JS/home.js"></script>
+<script src="{{ url_for('static', filename='home.js') }}"></script>
 
 </body>
 </html>

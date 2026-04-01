@@ -4,7 +4,8 @@ import sqlite3
 app = Flask(
     __name__,
     template_folder="HTML_CODE",
-    static_folder="CSS_AND_JS"
+    static_folder="CSS_AND_JS",
+    static_url_path="/static"
 )
 
 DATABASE = "rental.db"
@@ -62,7 +63,7 @@ def login_user():
     conn.close()
 
     if user:
-        return render_template("home.html", username=user["username"])
+        return redirect("/home")
     else:
         return "Login failed. Check your email and password."
 
@@ -72,6 +73,10 @@ def get_cars():
     cars = conn.execute("SELECT * FROM cars").fetchall()
     conn.close()
     return jsonify([dict(car) for car in cars])
+
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
