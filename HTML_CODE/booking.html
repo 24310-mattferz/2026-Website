@@ -6,3 +6,86 @@
 <link rel="stylesheet" href="../CSS_AND_JS/booking.css">
 </head>
 <body>
+
+<div class="wrapper">
+
+
+    <div class="form-box login" id="step1">
+        <h2>Select Your Car</h2>
+
+        <div class="input-box">
+            <select id="car">
+                <option value="">Select Car</option>
+                <option value="McLaren 720s LW|999">McLaren 720s LW</option>
+                <option value="Ferrari 599 GTO|1099">Ferrari 599 GTO</option>
+                <option value="Porsche 911 (1986)|1699">1986 Porsche 911</option>
+                <option value="Audi R8 LW|799">Audi R8 LW</option>
+                <option value="Ferrari F40|1899">Ferrari F40</option>
+                <option value="Ferrari Purosangue|699">Ferrari Purosangue</option>
+                <option value="Mercedes SLS|999">Mercedes SLS</option>
+                <option value="Range Rover SV|699">Range Rover SV</option>
+                <option value="Lamborghini Countach|1899">Lamborghini Countach</option>
+                <option value="Rolls Royce Spectre|1099">Rolls Royce Spectre</option>
+                <option value="Ford Mustang 1969|1599">1969 Ford Mustang</option>
+                <option value="Mercedes S500|99">Mercedes S500</option>
+            </select>
+        </div>
+
+        <p id="priceDisplay"></p>
+        <button class="btn" id="toStep2">Continue</button>
+    </div>
+
+    <div class="form-box login" id="step2" style="display:none">
+        <h2>Select Dates</h2>
+
+        <h3 id="carName"></h3>
+        <h4 id="carPrice"></h4>
+
+        <div class="input-box">
+            <input type="date" id="start">
+            <label>Start Date</label>
+        </div>
+
+        <div class="input-box">
+            <input type="date" id="end">
+            <label>End Date</label>
+        </div>
+
+        <button class="btn" id="toStep3">Continue</button>
+    </div>
+
+    
+    
+    <div class="form-box register" id="step3" style="display:none">
+        <h2>Payment</h2>
+
+        <h3 id="summary"></h3>
+
+        <div class="input-box">
+            <input type="text" required>
+            <label>Card Number</label>
+        </div>
+
+        <div class="input-box">
+            <input type="text" required>
+            <label>Card Holder</label>
+        </div>
+
+        <div class="input-box">
+            <input type="text" required>
+            <label>Expiry</label>
+        </div>
+
+        <div class="input-box">
+            <input type="text" required>
+            <label>CVV</label>
+        </div>
+
+        <button class="btn" id="payBtn">Pay Now</button>
+        
+    </div>
+</div>
+
+<script src="../CSS_AND_JS/booking.js"></script>
+</body>
+</html>
