@@ -7,6 +7,28 @@
 </head>
 <body>
 
+    <header class="header">
+    <div class="nav container">
+        
+        <a href="#" class="logo">Revora</a>
+
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('home') }}#trending">Trending</a>
+            <a href="{{ url_for('home') }}#rentals">Cars</a>
+            <a href="{{ url_for('home') }}#reviews">Reviews</a>
+        </nav>
+
+        <div class="nav-icons">
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="{{ url_for('login_page') }}">
+                <i class='bx bx-user'></i>
+            </a>
+        </div>
+
+    </div>
+</header>
+
 <div class="wrapper">
 
 
