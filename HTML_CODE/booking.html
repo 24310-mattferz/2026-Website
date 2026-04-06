@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Car Rental</title>
-<link rel="stylesheet" href="../CSS_AND_JS/booking.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='booking.css') }}">
 </head>
 <body>
 
@@ -108,6 +108,6 @@
     </div>
 </div>
 
-<script src="../CSS_AND_JS/booking.js"></script>
+<script src="{{ url_for('static', filename='booking.js') }}"></script>
 </body>
 </html>

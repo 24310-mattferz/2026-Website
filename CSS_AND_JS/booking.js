@@ -1,13 +1,39 @@
-let selectedCar = ""
-let selectedPrice = ""
+let selectedCar = "";
+let selectedPrice = "";
 let startDate = "";
 let endDate = "";
 
-const today = new Date().toISOString().split("T")[0];
-document.getElementById("start").min = today;
-document.getElementById("end").min = today;
 
-document.getElementById("car").addEventListener("change", function (){
+const params = new URLSearchParams(window.location.search);
+const carFromURL = params.get("car");
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("start").min = today;
+    document.getElementById("end").min = today;
+
+    
+    if (carFromURL) {
+        const select = document.getElementById("car");
+
+        for (let option of select.options) {
+            if (option.value.includes(carFromURL)) {
+                select.value = option.value;
+                select.dispatchEvent(new Event("change"));
+                break;
+            }
+        }
+
+       
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+    }
+});
+
+
+
+document.getElementById("car").addEventListener("change", function () {
     const value = this.value;
 
     if (!value) {
@@ -21,8 +47,13 @@ document.getElementById("car").addEventListener("change", function (){
     selectedPrice = price;
 
     document.getElementById("priceDisplay").innerText =
-        `${car} — $${price}/day`; 
-})
+        `${car} — $${price}/day`;
+
+ 
+    document.getElementById("carName").innerText = selectedCar;
+    document.getElementById("carPrice").innerText = `$${selectedPrice}/day`;
+});
+
 
 document.getElementById("toStep2").addEventListener("click", () => {
     if (!document.getElementById("car").value) {
@@ -35,11 +66,11 @@ document.getElementById("toStep2").addEventListener("click", () => {
 
     document.getElementById("carName").innerText = selectedCar;
     document.getElementById("carPrice").innerText = `$${selectedPrice}/day`;
-})
+});
 
 
 
-document.getElementById("toStep3").addEventListener("click",() => {
+document.getElementById("toStep3").addEventListener("click", () => {
     startDate = document.getElementById("start").value;
     endDate = document.getElementById("end").value;
 
@@ -59,16 +90,12 @@ document.getElementById("toStep3").addEventListener("click",() => {
     document.getElementById("step2").style.display = "none";
     document.getElementById("step3").style.display = "block";
 
-    document.getElementById("summary").innerText = 
+    document.getElementById("summary").innerText =
         `${selectedCar} | $${selectedPrice}/day | ${startDate} → ${endDate} | Total: $${total}`;
+});
 
-
-
-
-
-})
 
 
 document.getElementById("payBtn").addEventListener("click", () => {
-    alert("Payment Succesful and Booking Confirmed");
-})
+    alert("Payment Successful and Booking Confirmed");
+});

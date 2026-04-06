@@ -85,6 +85,7 @@ h3, h4{
     background: #5436e8;
 }
 
+
 .btn:active {
     transform: scale(0.98);
 }
@@ -101,10 +102,10 @@ h3, h4{
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
     z-index: 1000;
 }
+
+
 
 .nav {
     display: flex;
@@ -113,6 +114,7 @@ h3, h4{
     padding: 15px 5%;
 }
 
+
 .logo {
     font-size: 1.5rem;
     color: white;
@@ -120,10 +122,25 @@ h3, h4{
     text-decoration: none;
 }
 
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
 .navbar {
     display: flex;
     gap: 25px;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    transform: translatex(-30px);
 }
+
+
 
 .navbar a {
     color: white;
@@ -132,9 +149,11 @@ h3, h4{
     transition: 0.3s;
 }
 
+
 .navbar a:hover {
     color: #7a5cff;
 }
+
 
 .nav-icons {
     display: flex;
