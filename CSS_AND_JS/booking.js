@@ -1,8 +1,25 @@
 let selectedCar = "";
 let selectedPrice = "";
+let selectedCarName = "";
 let startDate = "";
 let endDate = "";
 
+async function loadCars() {
+    const response = await fetch("/cars");
+    const cars = await response.json();
+
+    const select = document.getElementById("car");
+    select.innerHTML = '<option value="">Select Car</option>';
+
+    cars.forEach(car => {
+        const option = document.createElement("option");
+
+        option.value = `${car.id}|${car.price_per_day}|${car.brand} ${car.model}`;
+        option.textContent = `${car.brand} ${car.model} — $${car.price_per_day}/day`;
+
+        select.appendChild(option);
+    });
+}
 
 const params = new URLSearchParams(window.location.search);
 const carFromURL = params.get("car");
