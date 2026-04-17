@@ -25,27 +25,33 @@ const params = new URLSearchParams(window.location.search);
 const carFromURL = params.get("car");
 
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
+    await loadCars();
     const today = new Date().toISOString().split("T")[0];
     document.getElementById("start").min = today;
     document.getElementById("end").min = today;
 
     
     if (carFromURL) {
-        const select = document.getElementById("car");
+    const select = document.getElementById("car");
 
-        for (let option of select.options) {
-            if (option.value.includes(carFromURL)) {
-                select.value = option.value;
-                select.dispatchEvent(new Event("change"));
-                break;
-            }
+    for (let option of select.options) {
+        if (option.textContent.toLowerCase().includes(carFromURL.toLowerCase())) {
+            select.value = option.value;
+            select.dispatchEvent(new Event("change"));
+            break;
         }
-
-       
-        document.getElementById("step1").style.display = "none";
-        document.getElementById("step2").style.display = "block";
     }
+    if (!selectedCar) {
+        if (select.options.length > 1) {
+            select.selectedIndex = 1;
+            select.dispatchEvent(new Event("change"));
+        }
+    }
+
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+}
 });
 
 
@@ -58,16 +64,17 @@ document.getElementById("car").addEventListener("change", function () {
         return;
     }
 
-    const [car, price] = value.split("|");
+    const [car, price, name] = value.split("|");
 
     selectedCar = car;
-    selectedPrice = price;
+    selectedPrice = parseInt(price);
+    selectedCarName = name;
 
     document.getElementById("priceDisplay").innerText =
-        `${car} — $${price}/day`;
+         `${selectedCarName} — $${selectedPrice}/day`;
 
  
-    document.getElementById("carName").innerText = selectedCar;
+    document.getElementById("carName").innerText = selectedCarName;
     document.getElementById("carPrice").innerText = `$${selectedPrice}/day`;
 });
 
@@ -81,10 +88,9 @@ document.getElementById("toStep2").addEventListener("click", () => {
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "block";
 
-    document.getElementById("carName").innerText = selectedCar;
+    document.getElementById("carName").innerText = selectedCarName;
     document.getElementById("carPrice").innerText = `$${selectedPrice}/day`;
 });
-
 
 
 document.getElementById("toStep3").addEventListener("click", () => {
@@ -102,17 +108,64 @@ document.getElementById("toStep3").addEventListener("click", () => {
     }
 
     const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
-    const total = days * parseInt(selectedPrice);
+    const total = days * selectedPrice;
 
     document.getElementById("step2").style.display = "none";
     document.getElementById("step3").style.display = "block";
 
     document.getElementById("summary").innerText =
-        `${selectedCar} | $${selectedPrice}/day | ${startDate} → ${endDate} | Total: $${total}`;
+         `${selectedCarName} | $${selectedPrice}/day | ${startDate} → ${endDate} | Total: $${total}`;
 });
 
 
 
-document.getElementById("payBtn").addEventListener("click", () => {
-    alert("Payment Successful and Booking Confirmed");
+document.getElementById("payBtn").addEventListener("click", async () => {
+
+    const inputs = document.querySelectorAll("#step3 .input-box input");
+
+    let allFilled = true;
+    inputs.forEach(input => {
+        if (input.value.trim() === "") allFilled = false;
+    });
+
+    if (!allFilled) {
+        alert("Please fill in all payment details");
+        return;
+    }
+
+    const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
+    const total = days * selectedPrice;
+
+    const userRes = await fetch("/get_user");
+    const userData = await userRes.json();
+
+    if (!userData.user_id) {
+    alert("You are not logged in");
+    window.location.href = "/login";
+    return;
+}
+
+    const bookingData = {
+        user_id: userData.user_id,
+        car_id: selectedCar,
+        start_date: startDate,
+        end_date: endDate,
+        total_price: total
+    };
+
+
+
+    const response = await fetch("/create_booking", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookingData)
+    });
+
+    const result = await response.json();
+
+    alert(result.message);
+
+    window.location.href = "/home";
 });

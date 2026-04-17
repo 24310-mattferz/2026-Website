@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session
 import sqlite3
 
 app = Flask(
@@ -7,6 +7,10 @@ app = Flask(
     static_folder="CSS_AND_JS",
     static_url_path="/static"
 )
+
+app.secret_key = "revora_secret_key"
+
+
 
 DATABASE = "rental.db"
 
@@ -63,9 +67,17 @@ def login_user():
     conn.close()
 
     if user:
+        session["user_id"] = user["id"]
         return redirect("/home")
     else:
         return "Login failed. Check your email and password."
+    
+
+@app.route("/get_user")
+def get_user():
+    return jsonify({"user_id": session.get("user_id")})
+
+
 
 @app.route("/cars")
 def get_cars():
@@ -81,6 +93,31 @@ def home():
 @app.route("/booking")
 def booking():
     return render_template("booking.html")
+
+@app.route("/create_booking", methods=["POST"])
+def create_booking():
+    data = request.get_json()
+    if not session.get("user_id"):
+     return jsonify({"message": "Not logged in"}), 401
+
+    user_id = data["user_id"]
+    car_id = data["car_id"]
+    start_date = data["start_date"]
+    end_date = data["end_date"]
+    total_price = data["total_price"]
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO bookings (user_id, car_id, start_date, end_date, total_price, status)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (user_id, car_id, start_date, end_date, total_price, "confirmed"))
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Booking saved successfully"})
 
 if __name__ == "__main__":
     app.run(debug=True)
