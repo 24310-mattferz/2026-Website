@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Squada+One&display=swap'); 
 
 :root {
-    --main-color: #fa7104;
-    --second-color: #e05404;
+    --main-color: #fa0404;
+    --second-color: #e00404;
     --text-color: #060414;
     --container-color: #efe8e0;
     --bg-color: #f7f7f7;
@@ -193,9 +193,11 @@ header {
 }
 
 .trend-box{
-    background: var(--container-color);
+    background: #111;
     padding:15px;
-    border-radius: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
 .trend-box img{
@@ -204,9 +206,9 @@ header {
 }
 
 .trend-box:hover{
-    background: #f7f7f7;
-    border: 2px solid var(--container-color);
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px rgba(255,0,0,0.35);
+    transition: 0.4s ease;
 }
 
 .trend-box h4{ 
@@ -268,13 +270,17 @@ header {
 }
 
 .rental-box {
-    background: var(--container-color);
+    background: #111;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 18px;
     transition: transform 0.5s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 .rental-box:hover{
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px rgba(255,0,0,0.35);
+    transition: 0.4s ease;
 }
 
 .rental-top h3{
@@ -347,9 +353,10 @@ header {
 }
 
 .t-box{
-    background: var(--container-color);
+    background: #111;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 .t-box .stars{
     color:var(--main-color);
@@ -359,6 +366,20 @@ header {
 .t-box p{
     font-size: 1rem;
     margin: 10px 0;
+}
+
+
+.trend-box h3,
+.trend-box p,
+.rental-box h2,
+.rental-box h4,
+.price-btn p,
+.t-box p,
+.profile-data h3,
+.profile-data span,
+.heading h2,
+.heading p{
+    color: white;
 }
 .profile{
     display:flex;
@@ -444,6 +465,49 @@ header {
     color: var(--bg-color);
 }
 
+
+.why-us{
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+.why-content{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5rem;
+}
+
+.why-box{
+    background: #111;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.4s ease;
+}
+
+.why-box i{
+    font-size: 38px;
+    color: #ff1a1a;
+    margin-bottom: 15px;
+}
+
+.why-box h3{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.why-box p{
+    color: #cfcfcf;
+    font-size: 0.95rem;
+}
+
+.why-box:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(255,0,0,0.25);
+}
+
+
 .copyright{
     padding: 30px;
     color: var(--bg-color);
@@ -473,6 +537,10 @@ header {
 
 @media (max-width: 768px) {
 
+
+    .why-content{
+    grid-template-columns: 1fr;
+}
        
     .navbar {
         position: absolute;
@@ -490,7 +558,7 @@ header {
     }
 
     .menu-icon {
-        display: flex;
+       display: flex;
     }
 
     
@@ -518,7 +586,7 @@ header {
 
     
     .input-form {
-        flex-direction: column;
+       flex-direction: column;
         align-items: stretch;
     }
 

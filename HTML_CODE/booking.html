@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Car Rental</title>
+<title>𝔅𝔬𝔬𝔨𝔦𝔫𝔤</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='booking.css') }}">
 </head>
 <body>
@@ -13,10 +13,10 @@
         <a href="#" class="logo">Revora</a>
 
         <nav class="navbar">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('home') }}#trending">Trending</a>
-            <a href="{{ url_for('home') }}#rentals">Cars</a>
-            <a href="{{ url_for('home') }}#reviews">Reviews</a>
+            <a href="{{ url_for('home') }}">𝗛𝗼𝗺𝗲</a>
+            <a href="{{ url_for('home') }}#trending">𝗧𝗿𝗲𝗻𝗱𝗶𝗻𝗴</a>
+            <a href="{{ url_for('home') }}#rentals">𝗖𝗮𝗿𝘀</a>
+            <a href="{{ url_for('home') }}#reviews">𝗥𝗲𝘃𝗶𝗲𝘄𝘀</a>
         </nav>
 
         <div class="nav-icons">
@@ -46,52 +46,52 @@
     </div>
 
     <div class="form-box login" id="step2" style="display:none">
-        <h2>Select Dates</h2>
+        <h2>𝐒𝐞𝐥𝐞𝐜𝐭 𝐃𝐚𝐭𝐞𝐬</h2>
 
         <h3 id="carName"></h3>
         <h4 id="carPrice"></h4>
 
         <div class="input-box">
             <input type="date" id="start">
-            <label>Start Date</label>
+            <label>𝗦𝘁𝗮𝗿𝘁 𝗗𝗮𝘁𝗲</label>
         </div>
 
         <div class="input-box">
             <input type="date" id="end">
-            <label>End Date</label>
+            <label>𝗘𝗻𝗱 𝗗𝗮𝘁𝗲</label>
         </div>
 
-        <button class="btn" id="toStep3">Continue</button>
+        <button class="btn" id="toStep3">𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞</button>
     </div>
 
     
     
     <div class="form-box register" id="step3" style="display:none">
-        <h2>Payment</h2>
+        <h2>𝐏𝐚𝐲𝐦𝐞𝐧𝐭</h2>
 
         <h3 id="summary"></h3>
 
         <div class="input-box">
             <input type="text" required>
-            <label>Card Number</label>
+            <label>𝗖𝗮𝗿𝗱 𝗡𝘂𝗺𝗯𝗲𝗿</label>
         </div>
 
         <div class="input-box">
             <input type="text" required>
-            <label>Card Holder</label>
+            <label>𝗖𝗮𝗿𝗱 𝗛𝗼𝗹𝗱𝗲𝗿</label>
         </div>
 
         <div class="input-box">
             <input type="text" required>
-            <label>Expiry</label>
+            <label>𝗘𝘅𝗽𝗶𝗿𝘆</label>
         </div>
 
         <div class="input-box">
             <input type="text" required>
-            <label>CVV</label>
+            <label>𝗖𝗩𝗩</label>
         </div>
 
-        <button class="btn" id="payBtn">Pay Now</button>
+        <button class="btn" id="payBtn">𝐏𝐚𝐲 𝐍𝐨𝐰</button>
         
     </div>
 </div>
