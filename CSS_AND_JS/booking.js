@@ -93,6 +93,7 @@ document.getElementById("toStep2").addEventListener("click", () => {
 });
 
 
+
 document.getElementById("toStep3").addEventListener("click", () => {
     startDate = document.getElementById("start").value;
     endDate = document.getElementById("end").value;
@@ -143,6 +144,7 @@ document.getElementById("payBtn").addEventListener("click", async () => {
     alert("You are not logged in");
     window.location.href = "/login";
     return;
+    
 }
 
     const bookingData = {
