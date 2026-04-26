@@ -11,18 +11,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝕽𝖊𝖛𝖔𝖗𝖆 | 𝕬𝖚𝖙𝖔𝖒𝖔𝖙𝖎𝖛𝖊</title>
+    <title>𝕽𝖊𝖛𝖔𝖗𝖆 | 𝕬𝖚𝖙𝖔𝖒𝖔𝖙𝖎𝖛𝖊</title> 
 
+    <!--External Icon Libary-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--CSS File-->
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
+
+
 <body>
+
+    <!--==================== NAVIGATION BAR ====================-->
 
 <header>
     <div class="nav container">
-        
+        <!--Website Name-->
         <a href="#" class="logo">Revora</a>
 
+       <!--Navigation Links-->
         <nav class="navbar">
             <a href="#" class="nav-link">𝗛𝗼𝗺𝗲</a>
             <a href="#trending" class="nav-link">𝗧𝗿𝗲𝗻𝗱𝗶𝗻𝗴</a>
@@ -30,32 +37,37 @@
             <a href="#reviews" class="nav-link">𝗥𝗲𝘃𝗶𝗲𝘄𝘀</a>
         </nav>
 
+
+        <!--Search, User Login, Mobile menu-->
         <div class="nav-icons">
             <a href="#"><i class='bx bx-search'></i></a>
+
+            <!--Login Page Links-->
             <a href="{{ url_for('login_page') }}">
     <i class='bx bx-user'></i>
 </a>
-
-
-            <div class="menu-icon">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+            
+        
         </div>
 
     </div>
 </header>
 
+<!--===================== Intro Section ======================-->
+
+
 <section class="home" id="home">
     <div class="home-content container">
 
+
+        <!--Main Featured Homepage Image-->
         <div class="home-img">
             <img src="{{ url_for('static', filename='images/home.png') }}">
         </div>
 
 </section> 
 
+<!--================== Top Rentals Section ==================-->
 <section class="rentals container" id="rentals"></section>
 
     <div class="heading">
@@ -64,7 +76,8 @@
     </div>
     
     <div class="rentals-content">
-
+        
+        <!--Rental Vehicle Card for CAR 1-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Sports Car</h3>
@@ -75,10 +88,14 @@
             <h4>Manual</h4>
             <div class="price-btn">
                 <p>$1899<span>/day</span></p>
+
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=Ferrari F40" class="rental-btn">Rent</a>
             </div>
         </div>
 
+
+        <!--Rental Vehicle Card for CAR 2-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>SUV</h3>
@@ -89,10 +106,11 @@
             <h4>DCT</h4>
             <div class="price-btn">
                 <p>$699<span>/day</span></p>
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                <a href="{{ url_for('booking') }}?car=Ferrari Purosange" class="rental-btn">Rent</a>
             </div>
         </div>
-
+        <!--Rental Vehicle Card for CAR 3-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Coupe</h3>
@@ -103,10 +121,13 @@
             <h4>DCT</h4>
             <div class="price-btn">
                 <p>$999<span>/day</span></p>
+
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=Mercedes SLS" class="rental-btn">Rent</a>
             </div>
         </div>
 
+        <!--Rental Vehicle Card for CAR 4-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>SUV</h3>
@@ -117,10 +138,12 @@
             <h4>Automatic</h4>
             <div class="price-btn">
                 <p>$699<span>/day</span></p>
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=Range Rover SV" class="rental-btn">Rent</a>
             </div>
         </div>
 
+        <!--Rental Vehicle Card for CAR 5-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Sports Car</h3>
@@ -131,10 +154,12 @@
             <h4>Manual</h4>
             <div class="price-btn">
                 <p>$1899<span>/day</span></p>
+
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=Lamborghini Countach" class="rental-btn">Rent</a>
             </div>
         </div>
-
+        <!--Rental Vehicle Card for CAR 6-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Luxury Sedan</h3>
@@ -145,10 +170,13 @@
             <h4>Electric</h4>
             <div class="price-btn">
                 <p>$1099<span>/day</span></p>
+
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=Rolls Royce Spectre" class="rental-btn">Rent</a>
             </div>
         </div>
-
+        
+        <!--Rental Vehicle Card for CAR 7-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Muscle Car</h3>
@@ -159,10 +187,11 @@
             <h4>Manual</h4>
             <div class="price-btn">
                 <p>$1599<span>/day</span></p>
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=1969 Ford Mustang" class="rental-btn">Rent</a>
             </div>
         </div>
-
+        <!--Rental Vehicle Card for CAR 8-->
         <div class="rental-box">
             <div class="rental-top">
                 <h3>Luxury Sedan</h3>
@@ -173,6 +202,7 @@
             <h4>Automatic</h4>
             <div class="price-btn">
                 <p>$999<span>/day</span></p>
+                <!--Sends the selected car to the booking page and autoselects it for the customer-->
                 <a href="{{ url_for('booking') }}?car=2025 Mercedes S500" class="rental-btn">Rent</a>
             </div>
         </div>
@@ -181,6 +211,7 @@
     
 </section>
 
+         <!--================== Staff Pick Section ===================-->
 
 <section class="staff-pick container">
 
@@ -188,7 +219,7 @@
         <h2>𝐒𝐭𝐚𝐟𝐟 𝐏𝐢𝐜𝐤 𝐎𝐟 𝐓𝐡𝐞 𝐖𝐞𝐞𝐤</h2>
         <p>𝐂𝐡𝐨𝐬𝐞𝐧 𝐛𝐲 𝐭𝐡𝐞 𝐑𝐞𝐯𝐨𝐫𝐚 𝐭𝐞𝐚𝐦 𝐟𝐨𝐫 𝐭𝐢𝐦𝐞𝐥𝐞𝐬𝐬 𝐝𝐞𝐬𝐢𝐠𝐧, 𝐫𝐚𝐰 𝐞𝐦𝐨𝐭𝐢𝐨𝐧, 𝐚𝐧𝐝 𝐮𝐧𝐟𝐨𝐫𝐠𝐞𝐭𝐭𝐚𝐛𝐥𝐞 𝐩𝐫𝐞𝐬𝐞𝐧𝐜𝐞.</p>
     </div>
-
+    <!--Featured Vehicle Chosen weekly-->
     <div class="staff-content">
 
         <div class="staff-image">
@@ -207,15 +238,17 @@
 
 </section>
 
-
+       <!--================== Trending Vehicles ==================-->
 
 <section class="trending container" id="trending">
     <div class="heading">
         <h2>𝐓𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐕𝐞𝐡𝐢𝐜𝐥𝐞𝐬</h2>
     </div>
 
+    <!--Trending Cards-->
     <div class="trending-content">
-
+        
+        <!--Trend Card 1-->
         <div class="trend-box">
             <h4>TURBO V8</h4>
             <img src="{{ url_for('static', filename='images/trending1.png') }}">
@@ -223,21 +256,23 @@
             <p>From $999/day</p>
         </div>
 
-
+                
+        <!--Trending Card 2-->
         <div class="trend-box">
             <h4>V12 NA</h4>
             <img src="{{ url_for('static', filename='images/trending2.png') }}">
             <h3>Ferrari 599 GTO</h3>
             <p>From $1099/day</p>
         </div>
-
+        <!--Trending Card 3-->
         <div class="trend-box">
             <h4>FLAT 6</h4>
             <img src="{{ url_for('static', filename='images/trending3.png') }}">
             <h3>1986 Porsche 911</h3>
             <p>From $1699/day</p>
         </div>
-
+       
+        <!--Trending Cars 4-->
         <div class="trend-box">
             <h4>5.2 V10</h4>
             <img src="{{ url_for('static', filename='images/trending4.png') }}">
@@ -248,20 +283,34 @@
     </div>
 </section>
 
+<!--================== Reviews Section ===================-->
+
+
+
 <section class="reviews" id="reviews">
     <div class="heading">
         <h2>𝐎𝐮𝐫 𝐂𝐮𝐬𝐭𝐨𝐦𝐞𝐫𝐬 </h2>
+    
     </div>
+
+    <!--Customer Review cards-->
+
     <div class="reviews-content container">
         <div class="t-box">
+            
             <div class="stars">
+
+                <!--Star Rating 1-->
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
             </div>
+            
+            <!--The Review-->
             <p>"Amazing service from start to finish and the car was extremly clean. Car was extremly clean and it was ready on time. The staff were freidnly and helpful and the price were extremly reasonable. I highly reccomend this company!!!</p>
+            <!--Reviewer Profile 1-->
             <div class="profile">
                 <img src="{{ url_for('static', filename='images/profile-1.png') }}">
                 <div class="profile-data">
@@ -272,13 +321,18 @@
         </div>
         <div class="t-box">
             <div class="stars">
+                <!--Star Rating 2-->
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
             </div>
+            
+            <!--The Review-->
             <p>"I had an amazing experience with this car rental service. The booking process was super smooth, and the car was clean and in perfect condition. Pick-up and drop-off were quick, and the staff were really helpful. Definitely using this again!”</p>
+            
+            <!--Reviewer Profile 2-->
             <div class="profile">
                 <img src="{{ url_for('static', filename='images/profile-2.png') }}">
                 <div class="profile-data">
@@ -289,13 +343,18 @@
         </div>
         <div class="t-box">
             <div class="stars">
+
+                <!--Star Rating 3-->
+
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
             </div>
+            <!--The Review-->
             <p>"Honestly one of the best rental experiences I’ve had. Prices were fair, no hidden fees, and the car matched exactly what was shown online. Customer support was quick to respond when I had a question. 10/10 service.”</p>
+           <!--Reviewer Profile 3-->
             <div class="profile">
                 <img src="{{ url_for('static', filename='images/profile-3.png') }}">
                 <div class="profile-data">
@@ -306,13 +365,18 @@
         </div>
         <div class="t-box">
             <div class="stars">
+                <!--Star Rating 4-->
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
                 <i class='bx bxs-star'></i>
             </div>
+            <!--The Review-->
+            
             <p>"Really good service overall. The car drove well and was fuel-efficient, which was great for my trip. Only small issue was a slight delay during pick-up, but everything else was handled professionally. Would recommend.”</p>
+            
+            <!--Reviewer Profile 4-->
             <div class="profile">
                 <img src="{{ url_for('static', filename='images/profile-4.png') }}">
                 <div class="profile-data">
@@ -325,8 +389,7 @@
     </div>
 </section>
 
-
-
+<!--======================= Why Choose Us? ========================-->
 
 
 <section class="why-us container" id="why-us">
@@ -336,6 +399,7 @@
         <p>𝙴𝚡𝚙𝚎𝚛𝚒𝚎𝚗𝚌𝚎 𝚙𝚛𝚎𝚖𝚒𝚞𝚖 𝚜𝚎𝚛𝚟𝚒𝚌𝚎, 𝚠𝚘𝚛𝚕𝚍-𝚌𝚕𝚊𝚜𝚜 𝚟𝚎𝚑𝚒𝚌𝚕𝚎𝚜, 𝚊𝚗𝚍 𝚊 𝚋𝚘𝚘𝚔𝚒𝚗𝚐 𝚙𝚛𝚘𝚌𝚎𝚜𝚜 𝚋𝚞𝚒𝚕𝚝 𝚏𝚘𝚛 𝚌𝚘𝚗𝚟𝚎𝚗𝚒𝚎𝚗𝚌𝚎..</p>
     </div>
 
+    <!--Business Advanatges-->
     <div class="why-content">
 
         <div class="why-box">
@@ -366,6 +430,8 @@
 
 </section>
 
+<!--====================== Company Stats ===================-->
+
 <section class="stats container">
 
     <div class="stat-box">
@@ -391,8 +457,10 @@
 </section>
 
 
+<!--====================== Footer ====================-->
 <div class="footer">
     <div class="footer-content contianer">
+        <!-- Company Details-->
         <div class="footer-box">
             <a href="#" class="logo">Revora<span>.</span></a>
             <p> 925 Bald Hill, Auckland City , NS 212019</p>
@@ -402,7 +470,9 @@
                 
             </div>
         </div>
+        
 
+        <!--Opening Hours-->
         <div class="footer-box">
             <h3>Opening Hours</h3>
             <p><span>Mon</span> 9:00 - 20:30</p>
@@ -422,16 +492,19 @@
         </div>
 
         <div class="footer-box">
+            <!--Contact Information-->
             <h3>Contact Us</h3>
             <p>+64 2029381746</p>
             <p><b3>support@domain.com</b3></p>
             <p>Address: 123 Auckland Central, Visasong Building Lower Albert, NZ</p>
         </div>
     </div>
+    <!--Copyright-->
     <p class="copyright">&#169; 2026 Revora</p>
 </div>
 
 
+<!-- Main JavaScript file for navbar/menu effects-->
 <script src="{{ url_for('static', filename='home.js') }}"></script>
 
 </body>
