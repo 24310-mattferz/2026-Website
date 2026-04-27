@@ -1,6 +1,15 @@
+/* ====================================
+   Stylesheet for Booking page
+   Author: Matthew Fernandez
+   File: booking.css
+   Date: April 2026
+   =================================== */
+
+
+/* Imported Google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-
+/* Resets the default browser spacing and in turn it applies font */
 *{
     margin:0;
     padding:0;
@@ -8,43 +17,54 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Booking Page backround */
+/* Fullscreen centered layout with background image */
+
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    /* Image as background */
     background: url('images/booking.jpg') no-repeat center center/cover;;
 }
-
+/* Form Container  */
 .wrapper {
     width: 400px;
 }
-
+/* Glass effect for form box (inspired by the login page) */
 .form-box{
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(15px);
+    /* Blur Effect*/
+    backdrop-filter: blur(15px); 
     padding:30px;
     border-radius: 15px;
     color: white;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
+/*===============================================
+  Headings 
+  ==============================================*/
+
 h2 {
     text-align: center;
     margin-bottom: 20px;
 }
-
 h3, h4{
     text-align: center;
     margin: 10px 0;
     color:aliceblue
 }
-
+/* Input fields */
 .input-box {
     position: relative;
     margin: 20px 0;
 }
+
+/* Textboxes / dropdown menus */
 
 .input-box input,.input-box select {
     width: 100%;
@@ -52,10 +72,12 @@ h3, h4{
     border: none;
     outline: none;
     border-radius: 8px;
+
+    /* Transparent input style */
     background: rgba(255, 255, 255, 0.1);
     color: white;
 }
-
+/* Floating labels*/
 .input-box label {
     position: absolute;
     top: -8px;
@@ -66,7 +88,9 @@ h3, h4{
     padding: 0 5px;
     border-radius: 4px;
 }
-
+/*=========================================
+  Buttons (Continue / Pay Button
+  ========================================*/
 .btn{
     width: 100%;
     height: 45px;
@@ -80,22 +104,25 @@ h3, h4{
     font-weight: 500;
     transition: 0.2s;
 }
-
+/* Hover Effect*/
 .btn:hover{
     background: #fc3e3e;
 }
 
+/* Click animation */
 
 .btn:active {
     transform: scale(0.98);
 }
-
+/* Price display text */
 #priceDisplay{
     text-align: center;
     color: black;
     margin: 10px 0;
 }
-
+ /* =================================
+    Header / Navbar 
+    =================================*/
 
 .header {
     position: fixed;
@@ -106,7 +133,7 @@ h3, h4{
 }
 
 
-
+/* Navigation Bar */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -114,25 +141,25 @@ h3, h4{
     padding: 15px 5%;
 }
 
-
+/* Website name */
 .logo {
     font-size: 1.5rem;
     color: white;
     font-weight: 600;
     text-decoration: none;
 }
-
-
+/* Right side nav area */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-
+/* Main nav menu */
 .navbar {
     display: flex;
     gap: 25px;
+    /* Dark glass background */
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(12px);
     padding: 10px 20px;
@@ -140,7 +167,7 @@ h3, h4{
     transform: translatex(-30px);
 }
 
-
+/* Navigation links */
 
 .navbar a {
     color: white;
@@ -149,17 +176,18 @@ h3, h4{
     transition: 0.3s;
 }
 
-
+/* Hover colour */
 .navbar a:hover {
     color: #fa5555;
 }
 
+/* Search and user icons */
 
 .nav-icons {
     display: flex;
     gap: 15px;
 }
-
+/* Icon styling */
 .nav-icons i {
     color: white;
     font-size: 1.3rem;
