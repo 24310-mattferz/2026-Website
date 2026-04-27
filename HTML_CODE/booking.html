@@ -11,15 +11,18 @@
 <head>
 <meta charset="UTF-8">
 <title>𝔅𝔬𝔬𝔨𝔦𝔫𝔤</title>
+
+<!--CSS file-->
 <link rel="stylesheet" href="{{ url_for('static', filename='booking.css') }}">
 </head>
 <body>
 
+    <!--=========================== Header / Navigation ==========================-->
     <header class="header">
     <div class="nav container">
-        
+        <!--Website Logo-->
         <a href="#" class="logo">Revora</a>
-
+        <!--Navigation links back to homepage-->
         <nav class="navbar">
             <a href="{{ url_for('home') }}">𝗛𝗼𝗺𝗲</a>
             <a href="{{ url_for('home') }}#trending">𝗧𝗿𝗲𝗻𝗱𝗶𝗻𝗴</a>
@@ -27,8 +30,10 @@
             <a href="{{ url_for('home') }}#reviews">𝗥𝗲𝘃𝗶𝗲𝘄𝘀</a>
         </nav>
 
+        <!-- Search and user account icons-->
         <div class="nav-icons">
             <a href="#"><i class='bx bx-search'></i></a>
+            <!--Login page link-->
             <a href="{{ url_for('login_page') }}">
                 <i class='bx bx-user'></i>
             </a>
@@ -37,73 +42,87 @@
     </div>
 </header>
 
+<!--==========================Booking Form Container======================-->
+
 <div class="wrapper">
 
-
+<!--Step 1 - Select your Car-->
     <div class="form-box login" id="step1">
         <h2>Select Your Car</h2>
 
         <div class="input-box">
+
+            <!-- Dropdown list populated by JavaScript-->
             <select id="car">
               <option value="">Loading cars...</option>
             </select>
         </div>
+        <!-- Continue to next booking step-->
 
         <p id="priceDisplay"></p>
         <button class="btn" id="toStep2">Continue</button>
     </div>
 
+    <!--Step 2 - Select dates -->
+    <!--Hidden until Step 1 is completed-->
     <div class="form-box login" id="step2" style="display:none">
         <h2>𝐒𝐞𝐥𝐞𝐜𝐭 𝐃𝐚𝐭𝐞𝐬</h2>
-
+        
+        <!--Vehicle Summary-->
         <h3 id="carName"></h3>
         <h4 id="carPrice"></h4>
-
+        
+        <!--Start Date-->
         <div class="input-box">
             <input type="date" id="start">
             <label>𝗦𝘁𝗮𝗿𝘁 𝗗𝗮𝘁𝗲</label>
         </div>
-
+        <!---End Date-->
         <div class="input-box">
             <input type="date" id="end">
             <label>𝗘𝗻𝗱 𝗗𝗮𝘁𝗲</label>
         </div>
-
+        <!--Continue to Payment-->
         <button class="btn" id="toStep3">𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞</button>
     </div>
 
-    
+    <!--Step 3 Payment-->
     
     <div class="form-box register" id="step3" style="display:none">
         <h2>𝐏𝐚𝐲𝐦𝐞𝐧𝐭</h2>
 
         <h3 id="summary"></h3>
 
+<!--Card Number-->
         <div class="input-box">
             <input type="text" required>
             <label>𝗖𝗮𝗿𝗱 𝗡𝘂𝗺𝗯𝗲𝗿</label>
         </div>
-
+<!--Card Holder-->
         <div class="input-box">
             <input type="text" required>
             <label>𝗖𝗮𝗿𝗱 𝗛𝗼𝗹𝗱𝗲𝗿</label>
+      
         </div>
-
+<!--Expiry-->
         <div class="input-box">
             <input type="text" required>
             <label>𝗘𝘅𝗽𝗶𝗿𝘆</label>
         </div>
-
+<!--CVV-->
+        
         <div class="input-box">
             <input type="text" required>
             <label>𝗖𝗩𝗩</label>
         </div>
-
+<!--Pay now button-->
         <button class="btn" id="payBtn">𝐏𝐚𝐲 𝐍𝐨𝐰</button>
         
     </div>
 </div>
 
+<!--JavaScript File-->
+<!--Handles Step changes, pricing, summaries and payment flow-->
 <script src="{{ url_for('static', filename='booking.js') }}"></script>
 </body>
 </html>
