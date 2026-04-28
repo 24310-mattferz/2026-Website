@@ -6,8 +6,9 @@
    =================================== */
 
 
+/* Imported Google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Squada+One&display=swap'); 
-
+/* Root Variables / Theme Colours / Fonts */
 :root {
     --main-color: #fa0404;
     --second-color: #e00404;
@@ -19,21 +20,24 @@
     --font-family-2: "Squada One", sans-serif; 
 }
 
+/* Reset Default Browser Styling */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
+/* Main Body Styling */
 body { 
     color: var(--text-color);
     background: #e22a01; 
     font-family: var(--poppins-font); 
 }
-
+/* Removes Default Link Underlines */
 a {
     text-decoration: none;
 }
+
+/* Main Content Container */
 
 .container {
     max-width: 1060px;
@@ -41,7 +45,9 @@ a {
     width: 100%; 
 }
 
-/* HEADER */
+/* =========================================== 
+   HEADER / Navigation 
+   ============================================ */
 header {
     position: fixed;
     top: 15px;
@@ -59,18 +65,15 @@ header {
     background: rgba(15, 15, 15, 0.55);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,0.08);
+     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-
     padding:17px 22px;
     border-radius: 16px;
-
     max-width: 1060px;
     margin: auto;
 }
 
-/* LOGO */
+/* Revora text */
 .logo{
     font-size: 1.7rem;
     font-weight: 400;
@@ -78,8 +81,7 @@ header {
     text-transform: uppercase;
     font-family: var(--font-family-2);
 }
-
-/* NAV LINKS */
+/* Navigation Links */
 .navbar {
     display: flex;
     gap: 1.5rem;
@@ -95,7 +97,7 @@ header {
     color:var(--bg-color);
 }
 
-/* ICONS */
+/*  Navigation Icons */
 .nav-icons {
     display:flex;
     align-items:center;
@@ -116,11 +118,12 @@ header {
     background: var(--second-color);
 }
 
+
 .nav-icons .bx{
     color: var(--bg-color);
     font-size:20px;
 }
-/* HAMBURGER */
+/* Mobile Hamburger Menu */
 .menu-icon {
     display:none;
     flex-direction: column;
@@ -135,8 +138,7 @@ header {
     width: 23px;
     transition: 0.3s;
 }
-
-/* ANIMATION */
+/* Hamburger Animation */
 .menu-icon.move .line1 {
     transform: rotate(-45deg) translate(-5px, 5px);
 }
@@ -144,12 +146,13 @@ header {
 .menu-icon.move .line2 {
     opacity: 0;
 }
-
 .menu-icon.move .line3 {
     transform: rotate(45deg) translate(-5px, -5px);
 }
 
-/* HOME */
+/* ============================ 
+   Intro Section 
+   ============================*/
 .home {
     background:#e22a01;
     min-height:670px;
@@ -163,12 +166,17 @@ header {
 .home-content{
     z-index:1;
 }
+/* image wrapper */
 .home-img {
     position: relative;
 }
+
+/* Main Intro car image */
 .home-img img{
     width: 100%;
 }
+
+/* Background Text Behind the Ferrari Image */
 
 .home-img::before{
     width: 100%;
@@ -185,7 +193,11 @@ header {
 
 }
 
-/* TRENDING */
+/* ======================== 
+    SECTION HEADINGS 
+    ======================*/
+
+
 .heading{
     margin-bottom: 2rem;
 }
@@ -194,12 +206,17 @@ header {
     font-size: 2.2rem;
 }
 
+/* ==========================
+   Trending Vehicles 
+   =========================*/
+
 .trending-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
 
+/* Individual trending card */
 .trend-box{
     background: #111;
     padding:15px;
@@ -207,11 +224,13 @@ header {
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
-
+/* Car image */
 .trend-box img{
     margin: 1.4rem 0 1rem;
     width:100%;
 }
+
+/* Hover animation */
 
 .trend-box:hover{
     transform: translateY(-10px) scale(1.03);
@@ -228,7 +247,7 @@ header {
     border-radius: 4px;
     font-weight: 600;
 }
-
+/* Hover animation for the trend box*/
 .trend-box:hover h4{
     background: #efe8e2;
 }
@@ -245,7 +264,9 @@ header {
 }
 
 
-
+/* ==========================================
+   Rental Cars
+   =======================================*/
 
 .rentals .heading {
     text-align: center;
@@ -264,6 +285,7 @@ header {
     margin: 1rem auto;
 }
 
+
 .rentals-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -271,12 +293,12 @@ header {
     max-width: 1060px;
     margin: 0 auto;
 }
-
+/* Rental Images*/
 .rental-box img {
     margin: 1.4rem 0 1rem;
     width:100%;
 }
-
+/* Rental card */
 .rental-box {
     background: #111;
     padding: 15px;
@@ -285,6 +307,9 @@ header {
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
+
+/* Rental card hover */
+
 .rental-box:hover{
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 0 25px rgba(255,0,0,0.35);
@@ -322,7 +347,7 @@ header {
     color: var(--text-alter-color);
     margin-top: 5px;
 }
-
+/* Price Button*/
 .price-btn {
     display:flex;
     justify-content: space-between;
@@ -337,6 +362,8 @@ header {
     color: var(--text-alter-color);
 }
 
+/* Rent now button */
+
 .rental-btn{
     background: var(--text-color);
     color: var(--bg-color);
@@ -350,6 +377,9 @@ header {
     transition: 0.4s ease;
 }
 
+/*====================================
+  Reviews 
+  ====================================*/
 .reviews .heading {
     text-align: center;
 }
@@ -359,13 +389,14 @@ header {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
-
+/* Review card */
 .t-box{
     background: #111;
     padding: 30px;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.08);
 }
+/* Star icons */
 .t-box .stars{
     color:var(--main-color);
     font-size: 20px;
@@ -412,10 +443,16 @@ header {
     color: var(--text-alter-color)
 }
 
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+
 .footer {
     background: var(--text-color);
     color: var(--bg-color);
 }
+/* Footer columns */
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
@@ -433,6 +470,9 @@ header {
     align-items: center;
     margin-top: 1rem;
 }
+
+/* Social media icons */
+
 .social a .bx{
     font-size: 20px;
     background: var(--main-color);
@@ -473,7 +513,9 @@ header {
     color: var(--bg-color);
 }
 
-
+/* ==========================================
+   WHY CHOOSE US SECTION
+========================================== */
 .why-us{
     margin-top: 5rem;
     margin-bottom: 3rem;
@@ -485,6 +527,7 @@ header {
     gap: 1.5rem;
 }
 
+/* Feature card */
 .why-box{
     background: #111;
     border-radius: 18px;
@@ -515,12 +558,15 @@ header {
     box-shadow: 0 0 20px rgba(255,0,0,0.25);
 }
 
+/* ================================
+   STAFF PICK 
+   =============================== */
 
 .staff-pick{
     margin-top: 4rem;
     margin-bottom: 4rem;
 }
-
+/* Two column featured layout */
 .staff-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -548,6 +594,7 @@ header {
     line-height: 1.6;
 }
 
+/* Staff pick button */
 .staff-btn{
     display: inline-block;
     background: linear-gradient(135deg,#ff1a1a,#990000);
@@ -562,7 +609,9 @@ header {
     box-shadow: 0 0 18px rgba(255,0,0,0.35);
 }
 
-
+/* ==========================================
+   COMPANY STATS SECTION
+========================================== */
 
 .stats{
     display: grid;
@@ -570,7 +619,7 @@ header {
     gap: 1.5rem;
     margin-bottom: 4rem;
 }
-
+/* Stat card */
 .stat-box{
     background: #111;
     padding: 28px 20px;
@@ -603,7 +652,7 @@ header {
 }
 
 
-
+/* Tablet layout */
 
 @media (max-width: 1024px) {
     .trending-content,
@@ -622,7 +671,7 @@ header {
 }
 
 
-
+/* Mobile layout */
 @media (max-width: 768px) {
 
 
@@ -636,7 +685,7 @@ grid-template-columns: 1fr;
     .why-content{
     grid-template-columns: 1fr;
 }
-       
+     /* Mobile dropdown menu */  
     .navbar {
         position: absolute;
         top: 100%;
@@ -692,7 +741,7 @@ grid-template-columns: 1fr;
 }
 
 
-
+/* Small phone layout */
 @media (max-width: 480px) {
 
     .logo {
