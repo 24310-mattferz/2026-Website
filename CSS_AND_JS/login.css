@@ -5,7 +5,7 @@
    Date: April 2026
    =================================== */
 
-
+/* Reset default browser spacing and apply global serif font */
 
 * {
     margin: 0;
@@ -13,19 +13,20 @@
     box-sizing: border-box;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+/* Center login form vertically and horizontally on page */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    
+    /* Full screen background image */
     background: url('sea-men-ERd52c7VSrc-unsplash.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+
 }
 
-
+/* Header */
 header {
     position: fixed;
     top: 0;
@@ -37,12 +38,14 @@ header {
     align-items: center;
     z-index: 99;
 }
-
+/* Revora name */
 .logo {
     color: #fff;
     font-size: 2em;
     user-select: none;
 }
+
+/* Navigation links */
 
 .navigation a {
     position: relative;
@@ -51,8 +54,10 @@ header {
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
+
 }
 
+/* Animated underline effect */
 .navigation a::after {
     content: '';
     position: absolute;
@@ -66,12 +71,13 @@ header {
     transform-origin: right;
     transition: transform 0.5s;
 }
-
+/* Show underline on hover */
 .navigation a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
 }
 
+/* Login button in navigation */
 .navigation .btnLogin-popup {
     width: 130px;
     height: 50px;
@@ -87,11 +93,14 @@ header {
     transition: .5s;
 }
 
+
+/* Button hover effect */
 .navigation .btnLogin-popup:hover {
     background: #fff;
     color: #000;
 }
 
+/* Main glass login/register container */
 .wrapper {
     position: relative;
     width: 400px;
@@ -108,20 +117,23 @@ header {
     transition: height .2s ease;
 }
 
+/* Show popup */
 
 .wrapper.active-popup{
     transform:scale(1)
 }
-
+/* Increase height when register form opens */
 .wrapper.active {
     height: 520px;
+
 }
 
+/* Shared form styling */
 .wrapper .form-box {
     width: 100%;
     padding: 40px;
 }
-
+/* Login form visible by default */
 .wrapper .form-box.login{
     transition: transform .18s ease;
     transform: translateX(0);
@@ -134,18 +146,22 @@ header {
 
 
 }
-
+/* Register form hidden to right by default */
 .wrapper .form-box.register{
     position: absolute;
     transition:none;
     transform: translateX(400px);
 }
 
+/* Slide register form into view */
+
 .wrapper.active .form-box.register {
     transition: transform .18s ease;
     transform: translateX(0);
+
 }
 
+/* Close icon button top-right */
 .wrapper .icon-close
 {
     position: absolute;
@@ -164,13 +180,15 @@ header {
     
 }
 
+/* Form heading */
 .form-box h2 {
     font-size: 2em;
     color: #000000;
     text-align: center;
+
 }
 
-
+/* Input field container */
 .input-box {
     position: relative;
     width: 100%;
@@ -179,6 +197,7 @@ header {
     margin: 30px 0;
 }
 
+/* Floating labels */
 .input-box label {
     position: absolute;
     top: 50%;
@@ -191,12 +210,14 @@ header {
     transition: .5s;
 }
 
+/* Move label upward when typing */
+
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
     top: -5px;
 }
-
+/* Text input styling */
 .input-box input {
     width: 100%;
     height: 100%;
@@ -209,6 +230,8 @@ header {
     padding: 0 35px 0 5px;
 }
 
+/* Icons inside input fields */
+
 .input-box .icon {
     position: absolute;
     right: 8px;
@@ -216,6 +239,8 @@ header {
     color: #000000;
     line-height: 57px;
 }
+
+/* Remember me / forgot password section */
 
 .remember-forgot {
     font-size: 0.9em; 
@@ -225,20 +250,24 @@ header {
     display: flex;
     justify-content: space-between;
 }
-
+/* Checkbox styling */
 .remember-forgot label input {
     accent-color: #000000;
     margin-right: 3px;
 }
-
+/* Forgot password link */
 .remember-forgot a {
     color: #000000;
     text-decoration: none;
 }
 
+/* Underline on hover */
+
 .remember-forgot a:hover {
     text-decoration: underline;
 }
+
+/* Main submit button */
 
 .btn {
     width: 100%;
@@ -254,10 +283,11 @@ header {
     transition: backgroud 0.3s;
 }
 
+/* Press animation */
 .btn:active {
     transform: scale(0.98);
 }
-
+/* Bottom switch login/register text */
 .login-register {
     font-size: .9em;
     color: #000000;
@@ -266,12 +296,115 @@ header {
     margin: 25px 0 10px; 
 }
 
+/* Register / login links */
 .login-register p a {
     color: #000000;
     text-decoration: none;
     font-weight: 600;
 }
 
+
+/* Hover underline */
 .login-register p a:hover {
     text-decoration: underline;
+
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+
+    header {
+        padding: 20px 50px;
+    }
+
+    .navigation a {
+        margin-left: 25px;
+        font-size: 1rem;
+    }
+
+    .navigation .btnLogin-popup {
+        width: 115px;
+        height: 45px;
+        font-size: 1rem;
+        margin-left: 25px;
+    }
+}
+
+/* Smaller tablets / large phones */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.7em;
+    }
+
+    .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .navigation a {
+        margin-left: 0;
+        font-size: 0.95rem;
+    }
+
+    .navigation .btnLogin-popup {
+        margin-left: 0;
+        width: 110px;
+        height: 42px;
+        font-size: 0.95rem;
+    }
+
+    .wrapper {
+        width: 90%;
+        max-width: 400px;
+        margin-top: 120px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 1.4em;
+    }
+
+    .navigation {
+        gap: 10px;
+    }
+
+    .navigation a {
+        font-size: 0.85rem;
+    }
+
+    .navigation .btnLogin-popup {
+        width: 100px;
+        height: 40px;
+        font-size: 0.85rem;
+    }
+
+    .wrapper {
+        width: 95%;
+        height: auto;
+        margin-top: 140px;
+    }
+
+    .wrapper .form-box {
+        padding: 25px;
+    }
+
+    .form-box h2 {
+        font-size: 1.6em;
+    }
 }
