@@ -10,10 +10,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Squada+One&display=swap'); 
 /* Root Variables / Theme Colours / Fonts */
 :root {
-    --main-color: #fa0404;
-    --second-color: #e00404;
+    --main-color: #0a1f44;
+    --second-color: #123a7a;
     --text-color: #060414;
-    --container-color: #efe8e0;
+    --container-color: #7989ff;
     --bg-color: #f7f7f7;
     --text-alter-color: #818181;
     --poppins-font: "Poppins", sans-serif;
@@ -29,8 +29,22 @@
 /* Main Body Styling */
 body { 
     color: var(--text-color);
-    background: #e22a01; 
+    background: #0b1220;
     font-family: var(--poppins-font); 
+}
+
+section {
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, #0b1220 80%);
+    z-index: -1;
 }
 /* Removes Default Link Underlines */
 a {
@@ -45,6 +59,7 @@ a {
     width: 100%; 
 
 }
+
 
 /* =========================================== 
    HEADER / Navigation 
@@ -66,7 +81,7 @@ header {
     background: rgba(15, 15, 15, 0.55);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-     border: 1px solid rgba(255,255,255,0.08);
+     border: 1px solid rgba(104, 51, 51, 0.08);
     box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     padding:17px 22px;
     border-radius: 16px;
@@ -155,45 +170,33 @@ header {
 /* ============================ 
    Intro Section 
    ============================*/
-.home {
-    background:#e22a01;
-    min-height:670px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 12rem !important;
-}
-.home-content{
-    z-index:1;
-}
-/* image wrapper */
+
 .home-img {
     position: relative;
 }
 
-/* Main Intro car image */
-.home-img img{
+.home-img img {
     width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    transform: scale(1.05);
+    position: relative;
+    z-index: 1;
 }
 
-/* Background Text Behind the Ferrari Image */
-
-.home-img::before{
+.home-img::before {
+    content: "𝐑𝐄𝐕𝐎𝐑𝐀";
     width: 100%;
-    content: "𝕽𝕰𝖁𝕺𝕽𝕬";
+    position: absolute;
+    top: 120px;
+    text-align: center;
     font-size: 11rem;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 2rem;
-    position:absolute;
-    text-align: center;
-    top: -70px;
-    color:#f28971;
-    z-index: -1;
-
+    color: rgba(0, 0, 0, 0.753);
+    z-index: 2; 
 }
+
 
 /* ======================== 
     SECTION HEADINGS 
@@ -211,7 +214,9 @@ header {
 /* ==========================
    Trending Vehicles 
    =========================*/
-
+.trending {
+    margin-top: 3rem;
+}
 .trending-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -220,7 +225,10 @@ header {
 
 /* Individual trending card */
 .trend-box{
-    background: #111;
+    background: rgba(202, 72, 72, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     padding:15px;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.08);
@@ -236,7 +244,7 @@ header {
 
 .trend-box:hover{
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 0 25px rgba(255,0,0,0.35);
+    box-shadow: 0 0 25px rgba(0,120,255,0.25);
     transition: 0.4s ease;
 }
 
@@ -302,7 +310,10 @@ header {
 }
 /* Rental card */
 .rental-box {
-    background: #111;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 15px;
     border-radius: 18px;
     transition: transform 0.5s ease;
@@ -314,7 +325,7 @@ header {
 
 .rental-box:hover{
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 0 25px rgba(255,0,0,0.35);
+    box-shadow: #7989ff;
     transition: 0.4s ease;
 }
 
@@ -394,7 +405,10 @@ header {
 }
 /* Review card */
 .t-box{
-    background: #111;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 30px;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.08);
@@ -533,7 +547,10 @@ header {
 
 /* Feature card */
 .why-box{
-    background: #111;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 18px;
     padding: 30px 20px;
     text-align: center;
@@ -543,7 +560,7 @@ header {
 
 .why-box i{
     font-size: 38px;
-    color: #ff1a1a;
+    color: #fbfaf9;
     margin-bottom: 15px;
 
 }
@@ -577,7 +594,10 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
-    background: #111;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 30px;
     border-radius: 22px;
     border: 1px solid rgba(255,255,255,0.08);
@@ -602,7 +622,7 @@ header {
 /* Staff pick button */
 .staff-btn{
     display: inline-block;
-    background: linear-gradient(135deg,#ff1a1a,#990000);
+    background: linear-gradient(135deg,#7989ff,#00159d);
     color: white;
     padding: 12px 18px;
     border-radius: 30px;
@@ -611,7 +631,7 @@ header {
 
 .staff-btn:hover{
     transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(255,0,0,0.35);
+    box-shadow: 0 0 18px rgba(4, 0, 255, 0.35);
 }
 
 /* ==========================================
@@ -627,7 +647,10 @@ header {
 }
 /* Stat card */
 .stat-box{
-    background: #111;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 28px 20px;
     border-radius: 18px;
     text-align: center;
@@ -636,7 +659,7 @@ header {
 }
 
 .stat-box h2{
-    color: #ff1a1a;
+    color: #4da3ff;
     font-size: 2rem;
     margin-bottom: 8px;
 }
