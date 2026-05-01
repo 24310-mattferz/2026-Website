@@ -24,24 +24,24 @@
 
 
     <!--======================== Header / Navigation ===========================-->
-    <header>
-        <!--Website Logo-->
+    <header class="header">
+    <div class="nav">
         <h2 class="logo">Revora</h2>
-        <nav class="navigation">
-            <!--Navigation links to the Home page(home.html)-->
+        <!--Navbar-->
+        <nav class="navbar">
             <a href="{{ url_for('home') }}">𝗛𝗼𝗺𝗲</a>
             <a href="{{ url_for('home') }}#trending">𝗧𝗿𝗲𝗻𝗱𝗶𝗻𝗴</a>
             <a href="{{ url_for('home') }}#rentals">𝗖𝗮𝗿𝘀</a>
             <a href="{{ url_for('home') }}#reviews">𝗥𝗲𝘃𝗶𝗲𝘄𝘀</a>
-        </nav> </header>
-
+        </nav>
+    </div>
+</header>
         <!--======================= Login / Register Container =======================-->
         <!--Non Standart feature: Popup form controlled with Javascript-->
     
         <div class="wrapper">
 
-            <!--Close popup button-->
-        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            
 <!--===========LOGIN FORM=================-->
         <div class="form-box login">
             <h2>Login</h2>
