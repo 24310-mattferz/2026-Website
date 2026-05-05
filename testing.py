@@ -72,6 +72,11 @@ def login_user():
     else:
         return "Login failed. Check your email and password."
     
+@app.route("/logout")
+def logout():
+    session.pop("user_id", None)
+    return redirect("/login")
+    
 
 @app.route("/get_user")
 def get_user():
@@ -92,6 +97,8 @@ def home():
 
 @app.route("/booking")
 def booking():
+    if not session.get("user_id"):
+        return redirect("/login")   # block access
     return render_template("booking.html")
 
 @app.route("/create_booking", methods=["POST"])
