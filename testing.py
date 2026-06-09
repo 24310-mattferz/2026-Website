@@ -2,6 +2,7 @@
 # Imported Flask modules and SQLite
 from flask import Flask, render_template, request, redirect, jsonify, session
 import sqlite3
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Create Flask app and define template/static folders
 app = Flask(
@@ -39,6 +40,7 @@ def register():
     email = request.form["email"]
     username = request.form["username"]
     password = request.form["password"]
+    hashed_pw = generate_password_hash(password)
  # Connect to database
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -55,7 +57,7 @@ def register():
          # Insert new user into database
         cursor.execute(
             "INSERT INTO users (email, username, password) VALUES (?, ?, ?)",
-            (email, username, password)
+            (email, username, hashed_pw)
         )
         conn.commit()
         conn.close()
@@ -77,12 +79,12 @@ def login_user():
    # Check if user exists in database
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE email=? AND password=?", (email, password))
+    cursor.execute("SELECT * FROM users WHERE email=?", (email,))
     user = cursor.fetchone()
     conn.close()
 
     # If user exists, save their ID into session
-    if user:
+    if user and check_password_hash(user["password"], password):
         session["user_id"] = user["id"]
           # Redirect to homepage
         return redirect("/home")
@@ -106,8 +108,14 @@ def get_user():
 @app.route("/cars")
 def get_cars():
     conn = get_db_connection()
-      # Select all cars
-    cars = conn.execute("SELECT * FROM cars").fetchall()
+
+    cars = conn.execute("""
+        SELECT cars.id, cars.make, cars.model, cars.year, cars.daily_rate,
+               categories.name AS category
+        FROM cars
+        LEFT JOIN categories ON cars.category_id = categories.id
+    """).fetchall()
+
     conn.close()
     return jsonify([dict(car) for car in cars])
 
@@ -149,6 +157,22 @@ def create_booking():
     conn.close()
 
     return jsonify({"message": "Booking saved successfully"})
+
+@app.route("/all_bookings")
+def all_bookings():
+    conn = get_db_connection()
+
+    data = conn.execute("""
+        SELECT users.full_name, cars.make, cars.model,
+               bookings.start_date, bookings.end_date, bookings.total_price
+        FROM bookings
+        JOIN users ON bookings.user_id = users.id
+        JOIN cars ON bookings.car_id = cars.id
+    """).fetchall()
+
+    conn.close()
+    return jsonify([dict(row) for row in data])
+
 # Run Flask server
 if __name__ == "__main__":
     app.run(debug=True, port=5050, use_reloader=False)
