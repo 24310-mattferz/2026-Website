@@ -7,24 +7,31 @@ let startDate = "";
 let endDate = "";
 /* Loads Cars From Flask Backend while fetching all available cars and adding them into dropdown menu */
 async function loadCars() {
-    const response = await fetch("/cars");
-    const cars = await response.json();
+    try {
+        const response = await fetch("/cars");
 
-    const select = document.getElementById("car");
+        if (!response.ok) {
+            console.error("Cars API failed:", response.status);
+            return;
+        }
 
-    /* Reset dropdown */
-    select.innerHTML = '<option value="">Select Car</option>';
-    
-    /* Create option for each car */
+        const cars = await response.json();
 
-    cars.forEach(car => {
-        const option = document.createElement("option");
+        const select = document.getElementById("car");
+        select.innerHTML = '<option value="">Select Car</option>';
 
-        option.value = `${car.id}|${car.price_per_day}|${car.brand} ${car.model}`;
-        option.textContent = `${car.brand} ${car.model} — $${car.price_per_day}/day`;
+        cars.forEach(car => {
+            const option = document.createElement("option");
 
-        select.appendChild(option);
-    });
+            option.value = `${car.id}|${car.daily_rate}|${car.make} ${car.model}`;
+            option.textContent = `${car.make} ${car.model} — $${car.daily_rate}/day`;
+
+            select.appendChild(option);
+        });
+
+    } catch (err) {
+        console.error("loadCars crashed:", err);
+    }
 }
 /*  Read Car Name From URL
    Example: booking?car=BMW */
@@ -54,7 +61,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         if (option.textContent.toLowerCase().includes(carFromURL.toLowerCase())) {
             select.value = option.value;
             /* Trigger dropdown change */
-            select.dispatchEvent(new Event("change"));
+            updateCarSelection();
             break;
         }
     }
@@ -63,7 +70,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!selectedCar) {
         if (select.options.length > 1) {
             select.selectedIndex = 1;
-            select.dispatchEvent(new Event("change"));
+            updateCarSelection();
         }
     }
     
@@ -76,8 +83,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 /* Car Selection Change/  Updates car name + daily price*/
 
-document.getElementById("car").addEventListener("change", function () {
-    const value = this.value;
+/* Car Selection Update Logic (reusable function) */
+function updateCarSelection() {
+    const select = document.getElementById("car");
+    const value = select.value;
 
     if (!value) {
         document.getElementById("priceDisplay").innerText = "";
@@ -87,17 +96,18 @@ document.getElementById("car").addEventListener("change", function () {
     const [car, price, name] = value.split("|");
 
     selectedCar = car;
-    selectedPrice = parseInt(price);
+    selectedPrice = parseFloat(price);
     selectedCarName = name;
 
-    /* Show selected car */
-    document.getElementById("priceDisplay").innerText =
-         `${selectedCarName} — $${selectedPrice}/day`;
+document.getElementById("priceDisplay").innerText =
+        `${selectedCarName} — $${selectedPrice}/day`;
 
- 
     document.getElementById("carName").innerText = selectedCarName;
     document.getElementById("carPrice").innerText = `$${selectedPrice}/day`;
-});
+}
+
+/* Attach to dropdown change */
+document.getElementById("car").addEventListener("change", updateCarSelection);
 
 /* Step 1 -> Step 2 ,User chooses vehicle
  */
@@ -133,9 +143,13 @@ document.getElementById("toStep3").addEventListener("click", () => {
         return;
     }
 /* Calculate rental days */
-    const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const days = Math.max(
+    1,
+    Math.ceil((new Date(endDate) - new Date(startDate)) / msPerDay)
+);
     /* Calculate total cost */
-    const total = days * selectedPrice;
+    const total = Number(days) * Number(selectedPrice);
 
     document.getElementById("step2").style.display = "none";
     document.getElementById("step3").style.display = "block";
@@ -153,6 +167,12 @@ document.getElementById("toStep3").addEventListener("click", () => {
 document.getElementById("payBtn").addEventListener("click", async () => {
 
     const inputs = document.querySelectorAll("#step3 .input-box input");
+    console.log("PAY DEBUG", {
+    selectedCar,
+    selectedPrice,
+    startDate,
+    endDate
+});
 
     let allFilled = true;
     inputs.forEach(input => {
@@ -164,12 +184,28 @@ document.getElementById("payBtn").addEventListener("click", async () => {
         return;
     }
  /* Recalculate final total */
-    const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
-    const total = days * selectedPrice;
+    const msPerDay = 1000 * 60 * 60 * 24;
+
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+
+if (!selectedPrice || isNaN(selectedPrice)) {
+    alert("Car price not loaded properly");
+    return;
+}
+
+const days = Math.max(
+    1,
+    Math.ceil((end - start) / msPerDay)
+);
+
+const total = days * selectedPrice;
 
     /* Check logged in user */
     const userRes = await fetch("/get_user");
     const userData = await userRes.json();
+
 
     if (!userData.user_id) {
     alert("You are not logged in");

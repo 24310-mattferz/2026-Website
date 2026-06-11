@@ -1,4 +1,4 @@
-# PYTHON FILE - MATTHEW FERNANDEZ - APRIN 2026
+# PYTHON FILE - MATTHEW FERNANDEZ - APRIl 2026
 # Imported Flask modules and SQLite
 from flask import Flask, render_template, request, redirect, jsonify, session
 import sqlite3
@@ -110,14 +110,21 @@ def get_cars():
     conn = get_db_connection()
 
     cars = conn.execute("""
-        SELECT cars.id, cars.make, cars.model, cars.year, cars.daily_rate,
-               categories.name AS category
+        SELECT id, brand, model, price_per_day
         FROM cars
-        LEFT JOIN categories ON cars.category_id = categories.id
-    """).fetchall()
+     """).fetchall()
 
     conn.close()
-    return jsonify([dict(car) for car in cars])
+
+    return jsonify([
+        {
+            "id": car["id"],
+            "make": car["brand"],
+            "model": car["model"],
+            "daily_rate": car["price_per_day"]
+        }
+        for car in cars
+    ])
 
 # Homepage route
 @app.route("/home")
