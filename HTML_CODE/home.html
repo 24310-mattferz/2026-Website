@@ -112,14 +112,14 @@
                 <i class='bx bxs-heart'></i>
             </div>
             <img src="{{ url_for('static', filename='images/rental-2.png') }}">
-            <h2>Ferrari Purosange</h2>
+            <h2>Ferrari Purosangue</h2>
             <h4>DCT</h4>
             <div class="price-btn">
                 <p>$699<span>/day</span></p>
                 <!--Sends the selected car to the booking page and autoselects it for the customer-->
             
             {% if session.get('user_id') %}
-               <a href="{{ url_for('booking') }}?car=Ferrari Purosange" class="rental-btn">Rent</a>
+               <a href="{{ url_for('booking') }}?car=Ferrari Purosangue" class="rental-btn">Rent</a>
             {% else %}
                 <a href="{{ url_for('login_page') }}" class="rental-btn">Login to Rent</a>
             {% endif %}
@@ -214,13 +214,13 @@
                 <i class='bx bxs-heart'></i>
             </div>
             <img src="{{ url_for('static', filename='images/rental-7.png') }}">
-            <h2>1969 Ford Mustang</h2>
+            <h2>Ford Mustang</h2>
             <h4>Manual</h4>
             <div class="price-btn">
                 <p>$1599<span>/day</span></p>
                 <!--Sends the selected car to the booking page and autoselects it for the customer-->
             {% if session.get('user_id') %}
-                <a href="{{ url_for('booking') }}?car=1969 Ford Mustang" class="rental-btn">Rent</a>
+                <a href="{{ url_for('booking') }}?car=Ford Mustang" class="rental-btn">Rent</a>
             {% else %}
                 <a href="{{ url_for('login_page') }}" class="rental-btn">Login to Rent</a>
             {% endif %}
@@ -233,13 +233,13 @@
                 <i class='bx bxs-heart'></i>
             </div>
             <img src="{{ url_for('static', filename='images/rental-8.png') }}">
-            <h2>2025 Mercedes S500</h2>
+            <h2>Mercedes S500</h2>
             <h4>Automatic</h4>
             <div class="price-btn">
                 <p>$999<span>/day</span></p>
                 <!--Sends the selected car to the booking page and autoselects it for the customer-->
             {% if session.get('user_id') %}
-                <a href="{{ url_for('booking') }}?car=2025 Mercedes S500" class="rental-btn">Rent</a>
+                <a href="{{ url_for('booking') }}?car=Mercedes S500" class="rental-btn">Rent</a>
             {% else %}
                 <a href="{{ url_for('login_page') }}" class="rental-btn">Login to Rent</a>
             {% endif %}
